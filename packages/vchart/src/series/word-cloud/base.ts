@@ -237,7 +237,7 @@ export class BaseWordCloudSeries<T extends IBaseWordCloudSeriesSpec = IBaseWordC
     const colorRange =
       colorList ??
       this._option.globalScale.getScale('color')?.range() ??
-      getDataScheme(this._option.getTheme().colorScheme, this.type as any);
+      getDataScheme(this._option.getTheme?.().colorScheme, this._spec);
     return new ColorOrdinalScale().domain(colorDomain).range?.(colorRange);
   }
 

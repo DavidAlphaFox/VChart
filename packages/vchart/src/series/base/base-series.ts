@@ -73,7 +73,7 @@ import { getDataScheme } from '../../theme/color-scheme/util';
 import { SeriesData } from './series-data';
 import { addDataKey, initKeyMap } from '../../data/transforms/data-key';
 import type { IGroupMark } from '../../mark/group';
-import { array, isEmpty, isEqual } from '@visactor/vutils';
+import { array, isEqual } from '@visactor/vutils';
 import type { ISeriesMarkAttributeContext } from '../../compile/mark';
 import { ColorOrdinalScale } from '../../scale/color-ordinal-scale';
 import { baseSeriesMark } from './constant';
@@ -1031,7 +1031,7 @@ export abstract class BaseSeries<T extends ISeriesSpec> extends BaseModel<T> imp
   // 重复代码太多了，整合一下
   protected getDefaultColorScale() {
     const colorDomain = this.getDefaultColorDomain();
-    const colorRange = getDataScheme(this._option.getTheme().colorScheme, this.type as any);
+    const colorRange = getDataScheme(this._option.getTheme?.().colorScheme, this._spec);
     return new ColorOrdinalScale().domain(colorDomain).range?.(colorRange);
   }
 

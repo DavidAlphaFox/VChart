@@ -411,8 +411,8 @@ export class BaseMark<T extends ICommonSpec> extends CompilableMark implements I
 
     const themeColor = computeActualDataScheme(
       getDataScheme(
-        this.model.getOption()?.getTheme()?.colorScheme,
-        this.model.modelType === 'series' ? (this.model.type as SeriesTypeEnum) : undefined
+        this.model.getOption()?.getTheme?.()?.colorScheme,
+        this.model.modelType === 'series' ? this.model.getSpec?.() : undefined
       ),
       (this.model as ISeries).getDefaultColorDomain()
     );
@@ -469,8 +469,8 @@ export class BaseMark<T extends ICommonSpec> extends CompilableMark implements I
     if (!('stroke' in computeStyle)) {
       const themeColor = computeActualDataScheme(
         getDataScheme(
-          this.model.getOption()?.getTheme()?.colorScheme,
-          this.model.modelType === 'series' ? (this.model.type as SeriesTypeEnum) : undefined
+          this.model.getOption()?.getTheme?.()?.colorScheme,
+          this.model.modelType === 'series' ? this.model.getSpec?.() : undefined
         ),
         (this.model as ISeries).getDefaultColorDomain()
       );

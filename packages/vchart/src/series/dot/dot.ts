@@ -444,7 +444,7 @@ export class DotSeries<T extends IDotSeriesSpec = IDotSeriesSpec> extends Cartes
       : this._seriesField
       ? this._viewDataStatistics?.latestData[this._seriesField].values
       : [];
-    const colorRange = getDataScheme(this._option.getTheme().colorScheme, this.type);
+    const colorRange = getDataScheme(this._option.getTheme?.().colorScheme, this._spec);
     return new ColorOrdinalScale().domain(colorDomain).range(colorRange);
   }
 

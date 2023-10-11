@@ -15,7 +15,15 @@ import type {
 } from './interface';
 import type { CoordinateType } from '../typings/coordinate';
 import type { IMark, IMarkOption, IMarkRaw, IMarkStyle, MarkTypeEnum } from '../mark/interface';
-import type { Datum, StateValueType, ConvertToMarkStyleSpec, ICommonSpec, StringOrNumber, IRect } from '../typings';
+import type {
+  Datum,
+  StateValueType,
+  ConvertToMarkStyleSpec,
+  ICommonSpec,
+  StringOrNumber,
+  IRect,
+  ISeriesSpec
+} from '../typings';
 import type { ITooltipHelper } from './tooltip-helper';
 import type { CompilableData } from '../compile/data/compilable-data';
 import { ModelStateManager } from './model-state-manager';
@@ -303,7 +311,7 @@ export abstract class BaseModel<T extends IModelSpec> extends LayoutItem<T> impl
       'spec',
       obj,
       this._option.getTheme?.()?.colorScheme,
-      this.modelType === 'series' ? (this.type as SeriesTypeEnum) : undefined
+      this.modelType === 'series' ? (this._spec as unknown as ISeriesSpec) : undefined
     );
 
     if (!arguments.length) {

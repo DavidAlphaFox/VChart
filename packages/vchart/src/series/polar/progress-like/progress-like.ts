@@ -234,8 +234,8 @@ export abstract class ProgressLikeSeries<T extends IProgressLikeSeriesSpec> exte
             const markStyle = preprocessSpecOrTheme(
               'mark-spec',
               style,
-              this._option.getTheme()?.colorScheme,
-              this.type as any
+              this._option.getTheme?.()?.colorScheme,
+              this._spec
             );
             return subTickData.map(({ value }) => {
               const pos = this.angleAxisHelper.dataToPosition([value]) + degreeToRadian(offsetAngle);
