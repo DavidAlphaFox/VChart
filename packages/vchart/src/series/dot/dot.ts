@@ -23,7 +23,6 @@ import { objFlat } from '../../data/transforms/obj-flat';
 import { DEFAULT_GRID_BACKGROUND } from './config';
 import { ColorOrdinalScale } from '../../scale/color-ordinal-scale';
 import type { SeriesMarkMap } from '../interface';
-import { VChart } from '../../core/vchart';
 import { SymbolMark } from '../../mark/symbol';
 import { TextMark } from '../../mark/text';
 import { RuleMark } from '../../mark/rule';
